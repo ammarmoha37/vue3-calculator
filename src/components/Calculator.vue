@@ -4,8 +4,8 @@ import { ref } from 'vue';
 const current = ref('');
 const solve = ref('');
 const result = ref('');
-const history = ref('');
-const state = ref('');
+const history = ref([]);
+const state = ref('true');
 const nightTheme = ref('true');
 
 const toggle = () => {
@@ -117,12 +117,12 @@ const historyData = () => {
         {{ result || 0}}
       </div>
     </div>
-    <div class="display-screen" v-else>
+    <div class="history-display" v-else>
       <div class="expression">
         <ul>
-          <li v-for="val in history">
-            {{ val }}
-          </li>
+          <li v-for="val in history.slice(-3)" :key="val">
+            {{ val }}
+          </li>
         </ul>
       </div>
     </div>
@@ -310,6 +310,18 @@ main {
 }
 .light-mode .answer {
   color: #373737;
+}
+
+.history-display {
+  display: flex;
+  margin-top: 60px;
+}
+.history-display li{
+  list-style: none;
+  padding: 2px;
+  font-size: 24px;
+  position: relative;
+  left: 50px;
 }
 
 /*BUTTONS*/
