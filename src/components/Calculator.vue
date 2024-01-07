@@ -1,4 +1,40 @@
 <script setup>
+import { ref } from 'vue';
+
+const current = ref('');
+const solve = ref('');
+const result = ref('');
+
+const clear = () => {
+  current.value = '';
+  result.value = '';
+};
+
+const sign = () => {
+  current.value =
+      current.value.charAt(0) === '-' ? current.value.slice(1) : `-${current.value}`;
+};
+
+const percent = () => {
+  current.value = `${parseFloat(current.value) / 100}`;
+};
+
+const dot = () => {
+  if (current.value.indexOf('.') === -1) {
+    append('.');
+  }
+};
+
+const append = (number) => {
+  current.value = `${current.value} ${number}`;
+};
+
+const equal = () => {
+  solve.value = current.value + '=';
+  result.value = eval(current.value);
+  solve.value = solve.value + `${result.value}`;
+};
+
 
 </script>
 
@@ -60,18 +96,18 @@
     <!--      DISPLAY-->
     <div class="display-screen dark-mode">
       <div class="expression">
-        4002
+        {{ current || 0}}
       </div>
       <div class="equal-sign">=</div>
       <div class="answer">
-        4002
+        {{ result || 0}}
       </div>
     </div>
 
     <!--      <Buttons />-->
     <div class="btns dark-mode">
       <div class="horz-ops">
-        <button @click="clear" class="btn clear op">AC</button>
+        <button @click="clear()" class="btn clear op">AC</button>
         <button @click="sign()" class="btn neg-pos op">+/-</button>
         <button @click="percent('%')" class="btn persentage op">%</button>
       </div>
