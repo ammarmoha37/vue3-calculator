@@ -2,7 +2,7 @@
 This is a basic calculator app built with Vue 3, designed to perform simple arithmetic operations and display calculation history.
 
 ## Features
-###### Operations: Addition, subtraction, multiplication, and division.
+##### Operations: Addition, subtraction, multiplication, and division.
 Ability to switch between calculator mode and view calculation history.
 Change sign of the current input.
 
@@ -12,7 +12,7 @@ Switch between calculator mode and history view to see past calculations.
 Clear the input, change the sign, and calculate percentages as needed.
 
 ### Technologies Used:
-#### Vue.js 3
-#### HTML5
-#### CSS3
+- Vue.js 3
+- HTML5
+- CSS3
 
