@@ -6,6 +6,12 @@ const solve = ref('');
 const result = ref('');
 const history = ref('');
 const state = ref('');
+const nightTheme = ref('true');
+
+const toggle = () => {
+  nightTheme = !nightTheme;
+  console.log(nightTheme);
+}
 
 const clear = () => {
   state.value = true;
@@ -36,7 +42,7 @@ const equal = () => {
   solve.value = current.value + '=';
   result.value = eval(current.value);
   solve.value = solve.value + `${result.value}`;
-  history.value = history.value.join(', ');
+  history.value.push(solve.value);
 };
 
 const historyData = () => {
@@ -50,7 +56,7 @@ const historyData = () => {
   <main>
   <div class="container dark-theme">
 <!--      MODE-->
-    <div class="switch dark-mode" >
+    <div class="switch dark-mode" v-if="nightTheme" @click="toggle()">
       <div class="day">
         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
           <g clip-path="url(#clip0_2_68)">
@@ -69,7 +75,7 @@ const historyData = () => {
         </svg>
       </div>
     </div>
-    <!-- <div class="switch light-mode">
+    <!-- <div class="switch light-mode" @click="toggle" v-else >
       <div class="day">
         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
           <g clip-path="url(#clip0_2_59)">
