@@ -68,7 +68,36 @@
       </div>
     </div>
 
-
+    <!--      <Buttons />-->
+    <div class="btns dark-mode">
+      <div class="horz-ops">
+        <button @click="clear" class="btn clear op">AC</button>
+        <button @click="sign()" class="btn neg-pos op">+/-</button>
+        <button @click="percent('%')" class="btn persentage op">%</button>
+      </div>
+      <div class="nums">
+        <button @click="append('1')" class="btn num">1</button>
+        <button @click="append('2')" class="btn num">2</button>
+        <button @click="append('3')" class="btn num">3</button>
+        <button @click="append('4')" class="btn num">4</button>
+        <button @click="append('5')" class="btn num">5</button>
+        <button @click="append('6')" class="btn num">6</button>
+        <button @click="append('7')" class="btn num">7</button>
+        <button @click="append('8')" class="btn num">8</button>
+        <button @click="append('9')" class="btn num">9</button>
+        <button @click="dot()" class="btn num">.</button>
+        <button @click="append('0')" class="btn num">0</button>
+        <button @click="append('00')" class="btn num" >00</button>
+      </div>
+      <div class="vertc-ops">
+        <button @click="append('/')" class="btn op">÷</button>
+        <button @click="append('*')" class="btn op">×</button>
+        <button @click="append('-')" class="btn op">-</button>
+        <button @click="append('+')" class="btn op">+</button>
+        <button @click="equal()" class="btn op equal">=</button>
+      </div>
+      <div class="bar"></div>
+    </div>
   </div>
   </main>
 </template>
@@ -169,7 +198,7 @@ main {
   width: 300px;
   height: 105px;
   position: relative;
-  bottom: 150px;
+  top: 150px;
   display: grid;
   grid-template-areas:
       ".          expression"
@@ -224,5 +253,124 @@ main {
   color: #373737;
 }
 
+/*BUTTONS*/
+.btns {
+  position: relative;
+  bottom: 100px;
+  width: 430px;
+  height: 490px;
+  margin-top: 270px;
+  border-radius: 40px;
+  background: linear-gradient(244deg, #17485e 28.14%, #15485e 17.9%, #1b3050 56.94%, #172134d6 94.11%);
+  display: grid;
+  grid-template-areas:
+    "horizontal horizontal horizontal vertical"
+    "buttons    buttons    buttons    vertical"
+    "buttons    buttons    buttons    vertical"
+    "buttons    buttons    buttons    vertical"
+    "buttons    buttons    buttons    vertical"
+    "buttons    buttons    buttons    vertical";
+}
 
+.horz-ops {
+  grid-area: horizontal;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 275px;
+  height: 70px;
+  margin: 20px 10px 0px 34px;
+  background: rgba(5, 5, 5, 0.30);
+  border-radius: 40px;
+}
+
+.nums {
+  grid-area: buttons;
+  margin: 20px 0 0 25px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 25px;
+  margin: 0px 10px 10px 35px;
+}
+
+.vertc-ops {
+  grid-area: vertical;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 450px;
+  margin: 20px 34px 0px 15px;
+  background: rgba(5, 5, 5, 0.30);
+  border-radius: 40px;
+  height: 430px;
+
+}
+
+.btn {
+  border-radius: 40px;
+  border: none;
+  height: 70px;
+  width: 70px;
+  background: rgba(5, 5, 5, 0.30);
+  color: #FBFBFB;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.vertc-ops .btn {
+  background: rgba(5, 5, 5, 0.00);;
+}
+.horz-ops .btn {
+  background: rgba(5, 5, 5, 0.00);;
+}
+.vertc-ops .equal{
+  background: rgba(5, 5, 5, 0.30);;
+}
+.bar {
+  width: 175px;
+  height: 5px;
+  border-radius: 25px;
+  background: #3D76AB;
+  position: relative;
+  bottom: 10px;
+  left: 135px;
+}
+
+
+.btns.light-mode {
+  background: linear-gradient(244deg, #9ee2ff 8.14%, #5ab2ff 27.9%, #79b3ff 56.94%, #2d9dde 84.11%);
+}
+
+.light-mode .horz-ops{
+  background: rgba(255, 255, 255, 0.30);
+}
+.light-mode .btn{
+  color: #373737;;
+}
+
+.light-mode .vertc-ops{
+  background: rgba(255, 255, 255, 0.30);
+}
+
+.light-mode .btn {
+  background: rgba(255, 255, 255, 0.30);
+}
+.light-mode .vertc-ops .btn {
+  background: rgba(255, 255, 255, 0.00);
+}
+.light-mode .vertc-ops .equal {
+  background: rgba(255, 255, 255, 0.30);
+}
+.light-mode .horz-ops .btn {
+  background: rgba(255, 255, 255, 0.00);
+}
+
+.light-mode .bar {
+  background: #426281;
+}
 </style>
