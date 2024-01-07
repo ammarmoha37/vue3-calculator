@@ -4,8 +4,11 @@ import { ref } from 'vue';
 const current = ref('');
 const solve = ref('');
 const result = ref('');
+const history = ref('');
+const state = ref('');
 
 const clear = () => {
+  state.value = true;
   current.value = '';
   result.value = '';
 };
@@ -26,15 +29,20 @@ const dot = () => {
 };
 
 const append = (number) => {
-  current.value = `${current.value} ${number}`;
+  current.value = `${current.value}${number}`;
 };
 
 const equal = () => {
   solve.value = current.value + '=';
   result.value = eval(current.value);
   solve.value = solve.value + `${result.value}`;
+  history.value = history.value.join(', ');
 };
 
+const historyData = () => {
+  state.value = false;
+  current.value = history.value.join(', ');
+};
 
 </script>
 
@@ -94,13 +102,22 @@ const equal = () => {
     </div> -->
 
     <!--      DISPLAY-->
-    <div class="display-screen dark-mode">
+    <div class="display-screen dark-mode" v-if="state">
       <div class="expression">
         {{ current || 0}}
       </div>
       <div class="equal-sign">=</div>
       <div class="answer">
         {{ result || 0}}
+      </div>
+    </div>
+    <div class="display-screen" v-else>
+      <div class="expression">
+        <ul>
+          <li v-for="val in history">
+            {{ val }}
+          </li>
+        </ul>
       </div>
     </div>
 
