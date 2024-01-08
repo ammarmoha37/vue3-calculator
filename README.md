@@ -11,8 +11,12 @@ Click on the calculator buttons to input numbers and perform operations.
 Switch between calculator mode and history view to see past calculations.
 Clear the input, change the sign, and calculate percentages as needed.
 
-### Technologies Used:
+## Demo
+The app has been deployed online. You can try the app online at https://vue3-calculator-ammarmohamed.netlify.app/
+
+## Technologies Used:
 - Vue.js 3
 - HTML5
 - CSS3
+
 
