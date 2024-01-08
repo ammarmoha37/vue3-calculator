@@ -45,8 +45,7 @@ const equal = () => {
 };
 
 const historyData = () => {
-  state.value = false;
-  current.value = history.value.join(', ');
+  state.value = !state.value;
 };
 
 </script>
