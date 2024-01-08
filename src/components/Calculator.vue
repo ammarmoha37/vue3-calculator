@@ -10,7 +10,6 @@ const nightTheme = ref('true');
 
 const toggle = () => {
   nightTheme.value = !nightTheme.value;
-  console.log(nightTheme);
 }
 
 const clear = () => {
@@ -121,7 +120,7 @@ const historyData = () => {
       <div class="expression">
         <ul>
           <li v-for="val in history.slice(-3)" :key="val">
-            {{ val }}
+            {{ val }}
           </li>
         </ul>
       </div>
@@ -181,6 +180,7 @@ main {
   margin: 0;
   font-size: 18px;
   background: #7c7a7a;
+  user-select: none;
 }
 
 .container {
@@ -210,13 +210,13 @@ main {
   margin-top: 52px;
   margin-left: 150px;
   background: #1B6A9C;
+  cursor: pointer;
 }
 .night {
   width: 69px;
   height: 44px;
   border-radius: 40px;
   background: #003661;
-
   padding: 7px 20px;
 }
 .day {
@@ -250,6 +250,7 @@ main {
   height: 30px;
   margin-top: 59px;
   margin-left: 86px;
+  cursor: pointer;
 }
 
 /*DISPLAY*/
@@ -375,7 +376,6 @@ main {
   background: rgba(5, 5, 5, 0.30);
   border-radius: 40px;
   height: 430px;
-
 }
 
 .btn {
@@ -391,6 +391,11 @@ main {
   font-style: normal;
   font-weight: 600;
   line-height: normal;
+  cursor: pointer;
+}
+
+.btn:hover {
+  transform: scale(1.1);
 }
 
 .vertc-ops .btn {
