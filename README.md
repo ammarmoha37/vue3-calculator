@@ -1,4 +1,4 @@
-# vue3-calculator
+# Vue3 Calculator
 This is a basic calculator app built with Vue 3, designed to perform simple arithmetic operations and display calculation history.
 
 ## Features
@@ -12,7 +12,7 @@ Switch between calculator mode and history view to see past calculations.
 Clear the input, change the sign, and calculate percentages as needed.
 
 ## Demo
-The app has been deployed online. You can try the app online at https://vue3-calculator-ammarmohamed.netlify.app/
+The app has been deployed online. You can try the app online at [Vue3 Calculator](https://vue3-calculator-ammarmohamed.netlify.app/)
 
 ## Technologies Used:
 - Vue.js 3
